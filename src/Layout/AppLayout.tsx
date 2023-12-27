@@ -1,16 +1,19 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../componets/Navbar";
 import Header from "../componets/Header";
+import { useState } from "react";
 
 const AppLayout = () => {
+  const [isOpenNav, setIsOpenNav] = useState(false);
   return (
-    <div className="w-full h-screen bg-slate-100 grid grid-cols-[250px,1fr] grid-rows-[70px,1fr] ">
-      <div className=" col-span-2">
-        <Header></Header>
+    <div className="w-full min-h-screen flex flex-col md:grid md:grid-cols-[200px,1fr] md:grid-rows-[4rem,1fr]  ">
+      <div className="row-span-2">
+        <Navbar setIsOpenNav={setIsOpenNav} isOpenNav={isOpenNav}></Navbar>
       </div>
 
-      <Navbar></Navbar>
-      <div className="p-2">
+      <Header setIsOpenNav={setIsOpenNav}></Header>
+
+      <div className="bg-gray-200 p-2">
         <Outlet></Outlet>
       </div>
     </div>

@@ -2,8 +2,7 @@ import { Outlet } from "react-router-dom";
 
 const Rooms = () => {
   return (
-    <div>
-      Rooms
+    <div className=" rounded-sm">
       <Outlet></Outlet>
     </div>
   );
